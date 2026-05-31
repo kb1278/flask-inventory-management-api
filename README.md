@@ -1,7 +1,7 @@
-# Flask Inventory Management API
+# 📦 Flask Inventory Management API
 
 A backend REST API for managing inventory, products, and sales data using Flask, SQLAlchemy, and SQLite.  
-Built as a portfolio project to demonstrate backend development, database design, and data analytics using Python.
+Built as a portfolio project to demonstrate backend development, relational database design, and data analytics using Python.
 
 ---
 
@@ -10,7 +10,7 @@ Built as a portfolio project to demonstrate backend development, database design
 - Full CRUD operations for products (Create, Read, Update, Delete)
 - Relational database design (Products, Inventory, Sales)
 - Low stock detection for restocking alerts
-- Top-selling products analytics
+- Top-selling product analytics
 - Total inventory value calculation
 - Aggregated system statistics
 - CSV data ingestion using Pandas
@@ -30,11 +30,13 @@ Built as a portfolio project to demonstrate backend development, database design
 
 ## 📁 Project Structure
 
-app1.py → Main Flask API application  
-models.py → Database models (Product, Inventory, Sales)  
-clean_inventory2.csv → Cleaned dataset  
-data_loader.py → Script to load CSV into database  
-inventory.db → SQLite database
+```
+app1.py           → Main Flask API application  
+models.py         → Database models (Product, Inventory, Sales)  
+data_loader.py    → Script to load CSV into database  
+clean_inventory2.csv → Clean dataset  
+inventory.db      → SQLite database
+```
 
 ---
 
@@ -63,37 +65,46 @@ inventory.db → SQLite database
 
 ## 🔌 API Endpoints
 
-### Health Check
+### 🔹 Health Check
+```
 GET /
+```
 
-### Products
-GET /products  
-GET /product/<product_id>  
-POST /product  
-PUT /product/<product_id>  
-DELETE /product/<product_id>  
+### 🔹 Products
+```
+GET /products
+GET /product/<product_id>
+POST /product
+PUT /product/<product_id>
+DELETE /product/<product_id>
+```
 
-### Analytics
+---
 
-GET /stats  
-Returns:
+## 📊 Analytics Endpoints
+
+### 📈 GET /stats
+Returns system-wide metrics:
 - total_products
 - total_inventory_records
 - total_sales_records
 
-GET /low-stock  
-Returns products where stock quantity is below reorder level.
+---
 
-GET /top-selling  
-Returns top 10 products sorted by sales volume.
-
-## 💰 GET /inventory-value  
-Returns total inventory value calculated as:  
-**Unit Price × Stock Quantity**
+### ⚠️ GET /low-stock
+Returns products where stock is below reorder level.
 
 ---
 
-## 📊 Example Response
+### 🔥 GET /top-selling
+Returns top 10 products by sales volume.
+
+---
+
+### 💰 GET /inventory-value
+Returns total inventory value calculated as:
+
+**Unit Price × Stock Quantity**
 
 ```json
 {
@@ -103,7 +114,7 @@ Returns total inventory value calculated as:
 
 ---
 
-## ⚠️ Example Low Stock Response (GET /low-stock)
+### ⚠️ Example Low Stock Response
 
 ```json
 [
@@ -128,19 +139,19 @@ cd inventory-management-api
 
 ---
 
-### 2. Create a virtual environment (recommended)
+### 2. Create virtual environment
 ```bash
 python -m venv venv
 ```
 
-Activate it:
+Activate:
 
-**Windows:**
+**Windows**
 ```bash
 venv\Scripts\activate
 ```
 
-**Mac/Linux:**
+**Mac/Linux**
 ```bash
 source venv/bin/activate
 ```
@@ -154,14 +165,14 @@ pip install flask flask-sqlalchemy pandas
 
 ---
 
-### 4. Run the Flask app
+### 4. Run the API
 ```bash
 python app1.py
 ```
 
 ---
 
-### 5. Load data into the database
+### 5. Load dataset into database
 ```bash
 python data_loader.py
 ```
@@ -169,7 +180,8 @@ python data_loader.py
 ---
 
 ### 6. Test API
-Open in browser or Postman:
+
+Open browser or Postman:
 
 ```
 http://127.0.0.1:5000/
@@ -183,3 +195,14 @@ http://127.0.0.1:5000/stats
 http://127.0.0.1:5000/low-stock
 ```
 
+---
+
+## 🎯 Project Highlights (for CV)
+
+- Built a full REST API with relational database design
+- Implemented real-time inventory analytics
+- Designed normalized schema (Products, Inventory, Sales)
+- Built data pipeline using Pandas + SQLite
+- Created production-style API structure with Flask
+
+---
