@@ -12,7 +12,7 @@ Built as a portfolio project to demonstrate backend development, relational data
 - Relational database design (Products, Inventory, Sales)
 - Low stock detection for restocking alerts
 - Top-selling product analytics
-- Total inventory value calculation
+- Inventory valuation calculations
 - System-wide KPI statistics
 - CSV data ingestion using Pandas
 - RESTful JSON API responses
@@ -33,7 +33,7 @@ Built as a portfolio project to demonstrate backend development, relational data
 
 app6.py              → Main Flask API application  
 models.py            → Database models (Product, Inventory, Sales)  
-load_data.py         → CSV data loader (ETL pipeline)  
+load_data.py         → ETL script for CSV data ingestion  
 clean_inventory2.csv → Dataset  
 inventory.db         → SQLite database  
 
@@ -41,7 +41,7 @@ inventory.db         → SQLite database
 
 # 🗄 Database Design
 
-Products Table:
+## Products Table
 - product_id (Primary Key)
 - product_name
 - category
@@ -50,13 +50,13 @@ Products Table:
 - unit_price
 - status
 
-Inventory Table:
+## Inventory Table
 - stock_quantity
 - reorder_level
 - reorder_quantity
 - warehouse_location
 
-Sales Table:
+## Sales Table
 - sales_volume
 - inventory_turnover_rate
 
@@ -64,10 +64,10 @@ Sales Table:
 
 # 🔌 API Endpoints
 
-Health Check:
+## Health Check
 GET /
 
-Products:
+## Products
 GET /products  
 GET /product/<product_id>  
 POST /product  
@@ -78,7 +78,7 @@ DELETE /product/<product_id>
 
 # 📊 Analytics Endpoints
 
-System Stats:
+## System Stats
 GET /stats  
 Returns:
 - total_products  
@@ -87,20 +87,21 @@ Returns:
 
 ---
 
-Low Stock:
+## Low Stock
 GET /low-stock  
 Returns products where stock is below reorder level.
 
 ---
 
-Top Selling Products:
+## Top Selling Products
 GET /top-selling  
 Returns top 10 products by sales volume.
 
 ---
 
-Inventory Value:
+## Inventory Value
 GET /inventory-value  
+
 Formula:
 Unit Price × Stock Quantity  
 
@@ -113,11 +114,11 @@ Example response:
 
 # ⚙️ Setup Instructions
 
-1. Clone repository:
+## 1. Clone repository
 git clone https://github.com/your-username/inventory-management-api.git  
 cd inventory-management-api  
 
-2. Create virtual environment:
+## 2. Create virtual environment
 python -m venv venv  
 
 Activate:
@@ -128,16 +129,16 @@ venv\Scripts\activate
 Mac/Linux:
 source venv/bin/activate  
 
-3. Install dependencies:
+## 3. Install dependencies
 pip install flask flask-sqlalchemy pandas  
 
-4. Load dataset:
+## 4. Load dataset
 python load_data.py  
 
-5. Run application:
+## 5. Run application
 python app6.py  
 
-6. Open in browser:
+## 6. Open in browser
 http://127.0.0.1:5000/
 
 ---
@@ -147,7 +148,7 @@ http://127.0.0.1:5000/
 - Built a full REST API using Flask and SQLAlchemy  
 - Designed a normalized relational database (Products, Inventory, Sales)  
 - Implemented ETL pipeline using Pandas for CSV ingestion  
-- Developed API-based inventory analytics endpoints (low stock, sales trends, KPI metrics)  
+- Developed API-based analytics endpoints (stock, sales, KPI metrics)  
 - Built scalable backend architecture for inventory management systems  
 
 ---
