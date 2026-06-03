@@ -142,12 +142,12 @@ http://127.0.0.1:5000/
 
 ---
 
-# 🎯 Project Highlights 
+# 🎯 Project Highlights
 
 - Built a full REST API using Flask and SQLAlchemy  
 - Designed a normalized relational database (Products, Inventory, Sales)  
 - Implemented ETL pipeline using Pandas for CSV ingestion  
-- Developed real-time inventory analytics endpoints  
+- Developed API-based inventory analytics endpoints (low stock, sales trends, KPI metrics)  
 - Built scalable backend architecture for inventory management systems  
 
 ---
@@ -155,6 +155,6 @@ http://127.0.0.1:5000/
 # 🚀 Future Improvements
 
 - User authentication system (Admin login)  
-- Real-time stock updates  
+- Near real-time stock updates using frontend polling or WebSocket integration  
 - Predictive restocking using machine learning  
 - Cloud deployment (Render / Azure)
