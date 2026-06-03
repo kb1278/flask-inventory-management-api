@@ -142,7 +142,7 @@ http://127.0.0.1:5000/
 
 ---
 
-# 🎯 Project Highlights (CV Ready)
+# 🎯 Project Highlights 
 
 - Built a full REST API using Flask and SQLAlchemy  
 - Designed a normalized relational database (Products, Inventory, Sales)  
