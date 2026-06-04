@@ -32,15 +32,16 @@ Built as a portfolio project to demonstrate backend development, relational data
 
 # 📁 Project Structure
 
-- 🐍 **app6.py** – Main Flask application containing API routes and dashboard endpoints  
-- 🗄️ **models.py** – SQLAlchemy database models for Products, Inventory, and Sales  
-- 🔄 **load_data.py** – ETL script for loading inventory data from CSV into the database  
-- 📊 **clean_inventory2.csv** – Cleaned inventory dataset used for database population  
-- 🗃️ **inventory.db** – SQLite database storing product, inventory, and sales records  
-- 📓 **inventory_management5 (2).ipynb** – Jupyter Notebook for data cleaning, exploration, and inventory analysis  
-- 🌐 **templates/index.html** – Dashboard user interface  
-- ⚙️ **static/app.js** – Frontend JavaScript functionality  
-- 🎨 **static/style.css** – Dashboard styling and layout  
+- 🐍 **app6.py** – Main Flask application containing API routes and dashboard endpoints
+- 🗄️ **models.py** – SQLAlchemy database models for Products, Inventory, and Sales
+- 🔄 **load_data.py** – ETL script for loading inventory data from CSV into the database
+- 📊 **clean_inventory2.csv** – Cleaned inventory dataset used for database population
+- 🗃️ **inventory.db** – SQLite database storing product, inventory, and sales records
+- 📓 **inventory_management5 (2).ipynb** – Jupyter Notebook for data cleaning, exploration, and inventory analysis
+- 📦 **requirements.txt** – Project dependencies required to run the application and analysis notebook
+- 🌐 **templates/index.html** – Dashboard user interface
+- ⚙️ **static/app.js** – Frontend JavaScript functionality
+- 🎨 **static/style.css** – Dashboard styling and layout
 
 ---
 
