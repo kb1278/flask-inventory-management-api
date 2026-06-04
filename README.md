@@ -16,6 +16,7 @@ Built as a portfolio project to demonstrate backend development, relational data
 - System-wide KPI statistics
 - CSV data ingestion using Pandas
 - RESTful JSON API responses
+- Interactive web dashboard for data visualization
 
 ---
 
@@ -68,15 +69,24 @@ Built as a portfolio project to demonstrate backend development, relational data
 
 # 🔌 API Endpoints
 
-## Health Check
+## 🏠 Dashboard Endpoint
+- GET /dashboard  
+  - Serves the main UI (`index.html`)
+  - Loads dashboard with KPIs, charts, and product insights
+
+---
+
+## 🧾 Core API Endpoints
+
+### Health Check
 - GET /
 
-## Products
-- GET /products
-- GET /product/<product_id>
-- POST /product
-- PUT /product/<product_id>
-- DELETE /product/<product_id>
+### Products
+- GET /products  
+- GET /product/<product_id>  
+- POST /product  
+- PUT /product/<product_id>  
+- DELETE /product/<product_id>  
 
 ---
 
@@ -133,7 +143,7 @@ python load_data.py
 python app6.py  
 
 ## 7. Open in browser
-http://127.0.0.1:5000/
+http://127.0.0.1:5000/dashboard
 
 ---
 
@@ -143,13 +153,14 @@ http://127.0.0.1:5000/
 - Designed a normalized relational database (Products, Inventory, Sales)  
 - Implemented ETL pipeline using Pandas for CSV ingestion  
 - Developed API-based analytics endpoints (stock, sales, KPI metrics)  
-- Built scalable backend architecture for inventory management systems  
+- Built interactive dashboard with real-time data visualization  
+- Scalable backend architecture for inventory management systems  
 
 ---
 
 # 🚀 Future Improvements
 
 - User authentication system (Admin login)  
-- Near real-time stock updates using frontend polling or WebSocket integration  
+- Real-time dashboard updates (WebSockets / polling)  
 - Predictive restocking using machine learning  
 - Cloud deployment (Render / Azure)
