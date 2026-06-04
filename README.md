@@ -31,11 +31,15 @@ Built as a portfolio project to demonstrate backend development, relational data
 
 # 📁 Project Structure
 
-app6.py              → Main Flask API application  
-models.py            → Database models (Product, Inventory, Sales)  
-load_data.py         → ETL script for CSV data ingestion  
-clean_inventory2.csv → Dataset  
-inventory.db         → SQLite database  
+- 🐍 **app6.py** – Main Flask application containing API routes and dashboard endpoints  
+- 🗄️ **models.py** – SQLAlchemy database models for Products, Inventory, and Sales  
+- 🔄 **load_data.py** – ETL script for loading inventory data from CSV into the database  
+- 📊 **clean_inventory2.csv** – Cleaned inventory dataset used for database population  
+- 🗃️ **inventory.db** – SQLite database storing product, inventory, and sales records  
+- 📓 **inventory_management5 (2).ipynb** – Jupyter Notebook for data cleaning, exploration, and inventory analysis  
+- 🌐 **templates/index.html** – Dashboard user interface  
+- ⚙️ **static/app.js** – Frontend JavaScript functionality  
+- 🎨 **static/style.css** – Dashboard styling and layout  
 
 ---
 
@@ -65,50 +69,40 @@ inventory.db         → SQLite database
 # 🔌 API Endpoints
 
 ## Health Check
-GET /
+- GET /
 
 ## Products
-GET /products  
-GET /product/<product_id>  
-POST /product  
-PUT /product/<product_id>  
-DELETE /product/<product_id>  
+- GET /products
+- GET /product/<product_id>
+- POST /product
+- PUT /product/<product_id>
+- DELETE /product/<product_id>
 
 ---
 
 # 📊 Analytics Endpoints
 
 ## System Stats
-GET /stats  
-Returns:
-- total_products  
-- total_inventory_records  
-- total_sales_records  
-
----
+- GET /stats  
+  - total_products  
+  - total_inventory_records  
+  - total_sales_records  
 
 ## Low Stock
-GET /low-stock  
-Returns products where stock is below reorder level.
-
----
+- GET /low-stock  
+  Returns products where stock is below reorder level.
 
 ## Top Selling Products
-GET /top-selling  
-Returns top 10 products by sales volume.
-
----
+- GET /top-selling  
+  Returns top 10 products by sales volume.
 
 ## Inventory Value
-GET /inventory-value  
-
-Formula:
-Unit Price × Stock Quantity  
-
-Example response:
-{
-  "inventory_value": 12500.50
-}
+- GET /inventory-value  
+  Formula: Unit Price × Stock Quantity  
+  Example:
+  {
+    "inventory_value": 12500.50
+  }
 
 ---
 
@@ -121,7 +115,7 @@ cd inventory-management-api
 ## 2. Create virtual environment
 python -m venv venv  
 
-Activate:
+## 3. Activate environment
 
 Windows:
 venv\Scripts\activate  
@@ -129,16 +123,16 @@ venv\Scripts\activate
 Mac/Linux:
 source venv/bin/activate  
 
-## 3. Install dependencies
+## 4. Install dependencies
 pip install flask flask-sqlalchemy pandas  
 
-## 4. Load dataset
+## 5. Load dataset
 python load_data.py  
 
-## 5. Run application
+## 6. Run application
 python app6.py  
 
-## 6. Open in browser
+## 7. Open in browser
 http://127.0.0.1:5000/
 
 ---
