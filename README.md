@@ -154,7 +154,7 @@ http://127.0.0.1:5000/dashboard
 - Designed a normalized relational database (Products, Inventory, Sales)  
 - Implemented ETL pipeline using Pandas for CSV ingestion  
 - Developed API-based analytics endpoints (stock, sales, KPI metrics)  
-- Built interactive dashboard with real-time data visualization  
+- Built an interactive dashboard with dynamic, API-driven data visualization using Flask and SQLAlchemy
 - Scalable backend architecture for inventory management systems  
 
 ---
