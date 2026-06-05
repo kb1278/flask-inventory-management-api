@@ -111,6 +111,7 @@ http://127.0.0.1:5000/dashboard
 # 🐳 Run with Docker
 
 docker build -t inventory-api .
+
 docker run -p 5000:5000 inventory-api
 
 ---
