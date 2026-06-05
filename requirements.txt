@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+Pandas
+NumPy
+Matplotlib
+gunicorn
