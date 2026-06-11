@@ -87,8 +87,14 @@ The system follows a modular backend architecture:
 # ⚙️ Setup Instructions
 
 ## Clone repository
+
+```bash
 git clone https://github.com/kb1278/flask-inventory-management-api.git
+```
+
+```bash
 cd flask-inventory-management-api
+```
 
 ## Create virtual environment
 python -m venv venv
