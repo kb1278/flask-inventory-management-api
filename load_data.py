@@ -6,7 +6,8 @@ from models import db, Product, Inventory, Sales
 
 CSV_PATH = r"C:\Users\bhamr\OneDrive\Documents\clean_inventory2.csv"
 
-df = pd.read_csv(CSV_PATH)
+df = pd.read_csv(CSV_PATH, sep="\t")
+df.columns = df.columns.str.strip()
 
 with app.app_context():
 
