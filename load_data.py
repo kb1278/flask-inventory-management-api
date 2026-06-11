@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 
-from app1 import app
+from app6 import app
 from models import db, Product, Inventory, Sales
 
 CSV_PATH = r"C:\Users\bhamr\OneDrive\Documents\clean_inventory2.csv"
