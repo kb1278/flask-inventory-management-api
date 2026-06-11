@@ -1,67 +1,78 @@
 import pandas as pd
-
-from app6 import app
-from models import db, Product, Inventory, Sales
-
-
-# CONFIG
+from app6 import app, db
+from models import Product, Inventory, Sales
 
 CSV_PATH = "clean_inventory2.csv"
 
+def safe_float(x):
+    try:
+        return float(x)
+    except:
+        return 0.0
 
-# LOAD + CLEAN DATA
+def safe_int(x):
+    try:
+        return int(float(x))
+    except:
+        return 0
 
+df = pd.read_csv(
+    CSV_PATH,
+    dtype=str,
+    engine="python",
+    on_bad_lines="skip"
+)
 
-df = pd.read_csv(CSV_PATH, sep="\t")
 df.columns = df.columns.str.strip()
+df = df.fillna("0")
 
-# Replace missing values safely
-df = df.fillna(0)
+expected_cols = [
+    "Product_ID", "Product_Name", "Category",
+    "Supplier_ID", "Supplier_Name",
+    "Stock_Quantity", "Reorder_Level", "Reorder_Quantity",
+    "Unit_Price", "Date_Received", "Last_Order_Date",
+    "Expiration_Date", "Warehouse_Location",
+    "Sales_Volume", "Inventory_Turnover_Rate",
+    "Status"
+]
 
+missing_cols = [col for col in expected_cols if col not in df.columns]
+if missing_cols:
+    raise ValueError(f"Missing columns: {missing_cols}")
 
-# LOAD INTO DATABASE
+print("Rows loaded:", len(df))
 
 with app.app_context():
 
-    # Clear existing data
-    Sales.query.delete()
-    Inventory.query.delete()
-    Product.query.delete()
+    db.session.query(Sales).delete()
+    db.session.query(Inventory).delete()
+    db.session.query(Product).delete()
     db.session.commit()
 
     for _, row in df.iterrows():
 
-        
-        # PRODUCT TABLE
-       
         product = Product(
-            product_id=str(row["Product_ID"]),
-            product_name=str(row["Product_Name"]),
-            category=str(row["Category"]),
-            supplier_id=str(row["Supplier_ID"]),
-            supplier_name=str(row["Supplier_Name"]),
-            unit_price=float(row["Unit_Price"]),
-            status=str(row["Status"])
+            product_id=row["Product_ID"],
+            product_name=row["Product_Name"],
+            category=row["Category"],
+            supplier_id=row["Supplier_ID"],
+            supplier_name=row["Supplier_Name"],
+            unit_price=safe_float(row["Unit_Price"]),
+            status=row["Status"]
         )
 
-        
-        # INVENTORY TABLE
-        
         inventory = Inventory(
-            product_id=str(row["Product_ID"]),
-            stock_quantity=int(float(row["Stock_Quantity"])),
-            reorder_level=int(float(row["Reorder_Level"])),
-            reorder_quantity=int(float(row["Reorder_Quantity"])),
-            warehouse_location=str(row["Warehouse_Location"])
+            product_id=row["Product_ID"],
+            stock_quantity=safe_int(row["Stock_Quantity"]),
+            reorder_level=safe_int(row["Reorder_Level"]),
+            reorder_quantity=safe_int(row["Reorder_Quantity"]),
+            warehouse_location=row["Warehouse_Location"]
         )
 
-        
-        # SALES TABLE
-        
         sales = Sales(
-            product_id=str(row["Product_ID"]),
-            sales_volume=int(float(row["Sales_Volume"])),
-            inventory_turnover_rate=float(row["Inventory_Turnover_Rate"])
+            product_id=row["Product_ID"],
+            sales_volume=safe_int(row["Sales_Volume"]),
+            inventory_turnover_rate=safe_float(row["Inventory_Turnover_Rate"])
         )
 
         db.session.add(product)
@@ -70,7 +81,4 @@ with app.app_context():
 
     db.session.commit()
 
-print("Data loaded successfully")
-
-
-
+print("✅ ETL completed successfully")
