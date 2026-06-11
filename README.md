@@ -97,8 +97,13 @@ cd flask-inventory-management-api
 ```
 
 ## Create virtual environment
+
+```bash
 python -m venv venv
-venv\Scripts\activate   # Windows
+```
+```bash
+venv\Scripts\activate
+```  
 
 ## Install dependencies
 pip install -r requirements.txt
